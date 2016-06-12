@@ -11,16 +11,13 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 from whitenoise.django import DjangoWhiteNoise
-<<<<<<< HEAD
+
 from dj_static import Cling
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "trydjango.settings")
 
 application = Cling(get_wsgi_application())
-=======
-
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "trydjango.settings")
 
 application = get_wsgi_application()
->>>>>>> 5b2c11fc1e9e54fb0b345c767b90ce58eeaa3df3
 application = DjangoWhiteNoise(application)

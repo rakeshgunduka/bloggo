@@ -22,11 +22,8 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-<<<<<<< HEAD
     url(r'^',include("postss.urls",namespace='posts')),
-=======
-    url(r'^',include("posts.urls",namespace='posts')),
->>>>>>> 5b2c11fc1e9e54fb0b345c767b90ce58eeaa3df3
+    #url(r'^',include("posts.urls",namespace='posts')),
     #url(r'^posts', views.posthm),
     #url(r'^posts/$','posts.views.post_home'),
     #url(r'^posts/$', "<appname>.views.<functionname>"),	Direct Path to the function
