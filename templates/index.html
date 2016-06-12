@@ -1,0 +1,19 @@
+<!DOCTYPE html -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reck</title>
+</head>
+<body>
+	<h1>{{title}} Hello there</h1>
+	{% for obj in object_list %}
+		<!-- <a href='/posts/{{ obj.id }}'>ID :{{ obj.id }}<br/></a> 
+		<a href='{{ obj.get_absolute_url }}'>ID :{{ obj.id }}<br/></a>-->
+		<a href='{% url "posts:detail"  id=obj.id %}'>ID :{{ obj.id }}<br/></a>
+		<a>Title :{{ obj.title }}<br/></a>
+		<a>Content :{{ obj.content }}<br/></a>
+		<a>TimeStamp :{{ obj.timestamp }}<br/></a>
+		<a>Updated TS:{{ obj.updated }}<br/></a>
+	{% endfor %}
+	</body>
+</html>
