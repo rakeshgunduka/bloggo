@@ -34,6 +34,7 @@ def post_list(request):
 	except PageNotAnInteger:
 		# If page is not an integer, deliver first page.
 		queryset = paginator.page(1)
+		print 
 	except EmptyPage:
 		# If page is out of range (e.g. 9999), deliver last page of results.
 		queryset = paginator.page(paginator.num_pages)
@@ -58,7 +59,7 @@ def post_create(request):
 	if form.is_valid():
 		instance = form.save(commit=False)
 		print form.cleaned_data.get("title")
-		instance.user = request.user
+		#instance.user = request.user
 		instance.save()
 		#message success
 		messages.success(request,"Successfully Created",extra_tags='success')
