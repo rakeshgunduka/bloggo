@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 
+
 from django.conf import settings
 from django.db.models.signals import pre_save
 from django.db import models
@@ -48,7 +49,7 @@ class Post(models.Model):
 		return self.title	  
 
 	def get_absolute_url(self):
-		return reverse("postss:detail",kwargs={"id":self.id})
+		return reverse("posts:detail",kwargs={"id":self.id})
  
 	class Meta:
 		ordering = ["-timestamp","-updated"]
