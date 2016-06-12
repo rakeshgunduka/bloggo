@@ -15,11 +15,9 @@ from django.utils import timezone
 
 def post_list(request):
 	today = timezone.now().date()
-	if not request.user.is_staff or not request.user.is_superuser:
-		raise Http404
 	queryset_list = Post.objects.active() #.order_by("-timestamp")
-	if request.user.is_staff or request.user.is_superuser:
-		queryset_list = Post.objects.all()
+	# if request.user.is_staff or request.user.is_superuser:
+	queryset_list = Post.objects.all()
 	query = request.GET.get("q")
 	if query:
 		queryset_list = queryset_list.filter(
@@ -51,9 +49,9 @@ def post_list(request):
 
 
 def post_create(request):
-	if not request.user.is_staff or not request.user.is_superuser:
-		raise Http404
-	# if not request.user.is_authenticated():
+	# if not request.user.is_staff or not request.user.is_superuser:
+	# 	raise Http404
+	# # if not request.user.is_authenticated():
 	# 	raise Http404
 
 	form = PostForm(request.POST or None,request.FILES or None)
