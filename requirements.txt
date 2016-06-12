@@ -1,5 +1,8 @@
 boto==2.40.0
+<<<<<<< HEAD
 cling==2.3.2
+=======
+>>>>>>> 5b2c11fc1e9e54fb0b345c767b90ce58eeaa3df3
 dj-database-url==0.4.1
 Django==1.9
 django-storages==1.4.1
