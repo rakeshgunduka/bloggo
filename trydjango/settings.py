@@ -77,11 +77,25 @@ WSGI_APPLICATION = 'trydjango.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'projectdata',
+#         'USER': 'reckster',
+#         'PASSWORD': 'reck',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dd3etp4vm1hhtm',
+        'USER': 'tvusgkteqirxev',
+        'PASSWORD': '3JXLhWW8aItgOmLlx--K0TAHcN',
+        'HOST': 'ec2-107-22-238-96.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -117,6 +131,7 @@ USE_TZ = True
 # Update database configuration with $DATABASE_URL.
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+DATABASES['default'] =  dj_database_url.config()
 
 
 # Static files (CSS, JavaScript, Images)
