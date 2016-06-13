@@ -13,6 +13,31 @@ from django.shortcuts import render
 from django.utils import timezone
 # Create your views here.
 
+def homepage(request):
+	context = {
+		"title":"blog"
+	}
+	#return HttpResponse("<h1>Hello</h1>")
+	return render(request,"home.html",context)
+
+def aboutpage(request):
+	context = {
+		"title":"blog"
+	}
+	return render(request,"about.html",context)
+
+def postpage(request):
+	context = {
+		"title":"blog"
+	}
+	return render(request,"post.html",context)
+
+def contactpage(request):
+	context = {
+		"title":"blog"
+	}
+	return render(request,"contact.html",context)
+
 def post_list(request):
 	today = timezone.now().date()
 	queryset_list = Post.objects.active() #.order_by("-timestamp")

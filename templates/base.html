@@ -1,9 +1,17 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title>{% block head_title %}Reck{% endblock head_title %}</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>{% block head_title %}ReckBlog{% endblock head_title %}</title>
 	<!-- Latest compiled and minified CSS -->
+
+	<!-- CSS links -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 	<!-- Optional theme -->
@@ -11,9 +19,19 @@
 
 	<link rel="stylesheet" type="text/css" href='{% static "css/base.css" %}' />
 	
+	<!-- Custom CSS -->
+    <link href="{% static 'css/clean-blog.min.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
 	<style>{% block style %}{% endblock style %}</style>
 </head>
 <body>
+	<!-- Facebook JS -->
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
@@ -33,15 +51,26 @@
 	
 	{% include "messages_display.html" %}
 	<div class='container'>
-	{% block content %}
-		 
-	{% endblock content  %}
+		
+		{% block content %}
+				 
+		{% endblock content  %}
+	
 	</div>
 	<!-- <img src="{% static "img/venus.png"  %} alt="face" /> -->
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-</body>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<!-- jQuery -->
 
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'js/clean-blog.min.js' %}"></script>
+
+</body>
 
 </html>
