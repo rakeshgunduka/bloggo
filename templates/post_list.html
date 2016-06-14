@@ -7,7 +7,7 @@
 		{% for obj in object_list %}
 	 -->		<!-- <a href='/posts/{{ obj.id }}'>ID :{{ obj.id }}<br/></a> 
 			<a href='{{ obj.get_absolute_url }}'>ID :{{ obj.id }}<br/></a>-->
-			<!-- <a href='{% url "posts:detail"  id=obj.id %}'>{{ obj.title }}<br/></a>
+			<!-- <a href='{% url "postss:detail"  id=obj.id %}'>{{ obj.title }}<br/></a>
 			<p>Id :{{ obj.id }}<br/></p>
 			<p>Content :{{ obj.content | linebreaks | truncatechars:120 }}<br/></p>
 			<p>TimeStamp :{{ obj.timestamp }}<br/></p>
