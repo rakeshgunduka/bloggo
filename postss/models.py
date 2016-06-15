@@ -50,7 +50,7 @@ class Post(models.Model):
 		return self.title	  
 
 	def get_absolute_url(self):
-		return reverse("postss:detail",kwargs={"id":self.id})
+		return reverse("postss:detail",kwargs={"user_id":self.user_id})
  
 	class Meta:
 		ordering = ["-timestamp","-updated"]
@@ -59,7 +59,7 @@ def create_slug(instance,new_slug=None):
 	slug = slugify(instance.title)
 	if new_slug is not None:
 		slug = new_slug
-	qs = Post.objects.filter(slug = None).order_by("-id")
+	qs = Post.objects.filter(slug = None).order_by("-user_id")
 	exists = qs.exists()
 	if exists:
 		new_slug = "%s-%s"%(slug,qs.first().id)
