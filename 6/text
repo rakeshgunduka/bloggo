@@ -1,0 +1,15 @@
+CREATE TABLE postss_post
+( user_id SERIAL PRIMARY KEY,
+  users varchar(200),
+  title varchar(200),
+  subtitle varchar(200),
+  slug varchar(200),
+  image varchar(200),
+  height_field integer,
+  width_field integer,
+  content varchar(500),
+  draft BOOLEAN DEFAULT FALSE,
+  publish timestamp NOT NULL,
+  updated  timestamp NOT NULL,
+  timestamp timestamp
+);

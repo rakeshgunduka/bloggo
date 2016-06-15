@@ -53,11 +53,16 @@ def aboutpage(request):
 	}
 	return render(request,"about.html",context)
 
-def postpage(request):
+def postpage(request,user_id = 3):
+	instance = get_object_or_404(Post,user_id=user_id)
+	#share_string = quote_plus(instance.content)
 	context = {
-		"title":"blog"
+		"title": instance.title,
+		"instance":instance,
+		#"share_string":share_string,
 	}
 	return render(request,"post.html",context)
+
 
 def contactpage(request):
 	context = {
@@ -114,10 +119,10 @@ def post_create(request):
 		#instance.user = request.user
 		instance.save()
 		#message success
-		messages.success(request,"Successfully Created",extra_tags='success')
+		#messages.success(request,"Successfully Created",extra_tags='success')
 		return HttpResponseRedirect(instance.get_absolute_url())
-	else:
-		messages.error(request,"Not Successfully Created",extra_tags='error')
+	# else:
+	# 	messages.error(request,"Not Successfully Created",extra_tags='error')
 
 	# if request.method == "POST":
 	# 	print request.POST.get("title")
@@ -128,12 +133,12 @@ def post_create(request):
 	}
 	return render(request,"post_form.html",context)
 
-def post_detail(request,id):
-	instance = get_object_or_404(Post,id=id)
-	if instance.draft or instance.publish > timezone.now().date():
-		if not request.user.is_staff or not request.user.is_superuser:
-			raise Http404
-	#instance = Post.objects.get(id=1)
+def post_detail(request,user_id):
+	instance = get_object_or_404(Post,user_id=user_id)
+	# if instance.draft or instance.publish > timezone.now().date():
+	# 	if not request.user.is_staff or not request.user.is_superuser:
+	# 		raise Http404
+	# #instance = Post.objects.get(user_id=1)
 	#instance = get_object_or_404(Post,title="post123")
 	
 	share_string = quote_plus(instance.content)
@@ -154,12 +159,12 @@ def post_detail(request,id):
 
 	#return HttpResponse("<h1>Detail</h1>")
 
-def post_update(request,id):
+def post_update(request,user_id):
 	if not request.user.is_staff or not request.user.is_superuser:
 		raise Http404
-	instance = get_object_or_404(Post,id=id)
+	instance = get_object_or_404(Post,user_id=user_id)
 	form = PostForm(request.POST or None,request.FILES or None,instance = instance )
-	if form.is_valid():
+	if form.is_valuser_id():
 		instance = form.save(commit=False)
 		#print form.cleaned_data.get("title")
 		instance.save()
@@ -174,11 +179,11 @@ def post_update(request,id):
 	}
 	return render(request,"post_form.html",context)
 
-def post_delete(request,id=None):
+def post_delete(request,user_id=None):
 	# if not request.user.is_staff or not request.user.is_superuser:
 	# 	raise Http404
-	instance = get_object_or_404(Post,id=id)
+	instance = get_object_or_404(Post,user_id=user_id)
 	instance.delete()
 	messages.success(request,"Successfully deleted")
-	return redirect("postss:list")
+	return redirect("postss:home")
 	
