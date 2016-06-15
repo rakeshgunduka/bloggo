@@ -88,27 +88,27 @@ WSGI_APPLICATION = 'trydjango.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'myproject',
-        'USER': 'myprojectuser',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'dd3etp4vm1hhtm',
-#         'USER': 'tvusgkteqirxev',
-#         'PASSWORD': '3JXLhWW8aItgOmLlx--K0TAHcN',
-#         'HOST': 'ec2-107-22-238-96.compute-1.amazonaws.com',
-#         'PORT': '5432',
+#         'NAME': 'myproject',
+#         'USER': 'myprojectuser',
+#         'PASSWORD': 'password',
+#         'HOST': 'localhost',
+#         'PORT': '',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dd3etp4vm1hhtm',
+        'USER': 'tvusgkteqirxev',
+        'PASSWORD': '3JXLhWW8aItgOmLlx--K0TAHcN',
+        'HOST': 'ec2-54-225-83-198.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation
