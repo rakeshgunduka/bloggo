@@ -55,6 +55,7 @@ class Post(models.Model):
 	class Meta:
 		ordering = ["-timestamp","-updated"]
 
+
 def create_slug(instance,new_slug=None):
 	slug = slugify(instance.title)
 	if new_slug is not None:
