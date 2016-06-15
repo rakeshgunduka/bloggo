@@ -2,10 +2,15 @@
 
 {% block content %}
 {{ block.super  }}
-<div class='col-sm-8 col-sm-offset-2'>
+{% include "nav_others.html" %}
+<div class='col-sm-8 col-sm-offset-2' style="margin-top:10%">
+	<h1>Add Post Details</h1>
 	<form method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
 		{{ form.as_p}}
 		<input class="btn btn-default" type="submit" name="" value='Create Post'/>
 	</form>
+</div>
+<div style="margin-top:90%">
+{% include "footer.html" %}
 </div>
 {% endblock content %}

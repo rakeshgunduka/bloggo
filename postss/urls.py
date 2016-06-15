@@ -18,7 +18,7 @@ urlpatterns = [
     url(r'^about/$',aboutpage,name='about'),
     url(r'^post/$',postpage,name='post'),
     url(r'^contact/$',contactpage,name='contact'),
-    url(r'^create/$',post_create),
+    url(r'^create/$',post_create,name="create"),
     url(r'^list/$',post_list,name='list'),
     #url(r'^create/$',post_create),
     url(r'^(?P<user_id>\d+)/$',postpage,name='detail'),
