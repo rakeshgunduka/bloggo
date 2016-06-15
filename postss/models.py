@@ -22,10 +22,11 @@ class PostManager(models.Manager):
 def upload_location(instance,filename):
 	#filebase,extension = filename.split(".")
 	#return "%s/%s.%s"%(instance.id,instance.id,extension)
-	return "%s/%s"%(instance.id,filename)
+	return "%s/%s"%(instance.user_id,filename)
 
 class Post(models.Model):
-	user = models.ForeignKey(settings.AUTH_USER_MODEL,default=1)
+	user_id = models.AutoField(primary_key=True)
+	users = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True)
 	title = models.CharField(max_length=120)
 	subtitle = models.CharField(max_length=120)
 	slug = models.SlugField(unique=True)
@@ -35,12 +36,11 @@ class Post(models.Model):
 			height_field="height_field")
 	height_field = models.IntegerField(default=0)
 	width_field = models.IntegerField(default=0)
-	content = models.TextField()
+	content = models.TextField(null=True)
 	draft = models.BooleanField(default=False)
 	publish = models.DateField(auto_now=False,auto_now_add=False)
 	updated = models.DateTimeField(auto_now=True,auto_now_add=False)
 	timestamp = models.DateTimeField(auto_now=False,auto_now_add=True)
-
 	objects = PostManager()
 
 	def __unicode__(self):
