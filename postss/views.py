@@ -53,7 +53,7 @@ def aboutpage(request):
 	}
 	return render(request,"about.html",context)
 
-def postpage(request,user_id = 16):
+def postpage(request,user_id = 19):
 	instance = get_object_or_404(Post,user_id=user_id)
 	#share_string = quote_plus(instance.content)
 	context = {
