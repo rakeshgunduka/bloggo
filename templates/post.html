@@ -3,7 +3,6 @@
 
 {% block content %}
     {% include "navigation.html" %}
-
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
     <header class="intro-header" style="
@@ -31,6 +30,17 @@
             </div>
         </div>
     </article>
+    <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+    <hr/>
+    <div class="row">
+        <div class="col-sm-12">
+            <p>{{ instance.content | linebreaks | truncatechars:120}}</p>
+        <hr/>
+        </div>
+        <div class="col-sm-6">
+            <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
+        </div>
+    </div>
 
 
     {% include "footer.html" %}
