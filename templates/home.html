@@ -86,7 +86,15 @@
                 </div>
                 <hr> -->
                 <!-- Pager -->
-                <div class="pagination">
+                
+                <!-- <ul class="pager">
+                    <li class="next">
+                        <a href="#">Older Posts &rarr;</a>
+                    </li>
+                </ul> -->
+            </div>
+            {% endfor %}
+            <div class="pagination" style="margin-left:10%">
                     <span class="step-links">
                         {% if object_list.has_previous %}
                             <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.Get.q %}&q={{ request.GET.q }}{% endif %}">previous</a>
@@ -102,13 +110,6 @@
 
                     </span>
                 </div>
-                <!-- <ul class="pager">
-                    <li class="next">
-                        <a href="#">Older Posts &rarr;</a>
-                    </li>
-                </ul> -->
-            </div>
-            {% endfor %}
         </div>
     </div>
     {% include "footer.html" %}
