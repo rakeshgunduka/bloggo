@@ -77,6 +77,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'trydjango.wsgi.application'
 
+EMAIL_BACKEND = "sgbackend.SendGridBackend"
+SENDGRID_USER = "rakeshgunduka"
+SENDGRID_PASSWORD = "Star123Company"
+
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases

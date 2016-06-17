@@ -25,9 +25,9 @@
             {% for obj in object_list %}
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-preview">
-                        {% if obj.image %}
+                        <!-- {% if obj.image %}
                             <img src="{{ obj.image.url }}" class="img-responsive "/>
-                        {% endif %}
+                        {% endif %} -->
                         {% if obj.draft %}<h3>Draft</h3>{% endif %}
                         {% if obj.publish > today %}<h3>Future Post</h3>{% endif %}
                         <a href="{{ obj.get_absolute_url }}">

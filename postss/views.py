@@ -1,16 +1,20 @@
-from urllib import quote_plus
+from django.core.mail import send_mail, BadHeaderError,EmailMultiAlternatives
 
-from django.contrib import messages
+
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.shortcuts import render,get_object_or_404,redirect
-
-from .forms import PostForm
-from .models import Post
+from django.contrib import messages
 from django.db.models import Q
 
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from django.utils import timezone
+
+from urllib import quote_plus
+
+from .forms import PostForm,contactform
+from .models import Post
+
 # Create your views here.
 
 def homepage(request):
@@ -65,9 +69,32 @@ def postpage(request,user_id = 19):
 
 
 def contactpage(request):
+	form = contactform(request.POST or None)
+	if form.is_valid():
+		instance = form.save(commit=False)
+		uname =  form.cleaned_data.get("name")
+		email =  form.cleaned_data.get("emailid")
+		contact= form.cleaned_data.get("contact_no")
+		msg = form.cleaned_data.get("message")
+		print uname+email+contact+msg
+		#Still validation is required jquery would help for client side validation
+		subject = "Bloggo Message"
+		message = uname+email+contact+msg
+		from_email = "rakesh.gunduka@gmail.com"
+		#from_email = EMAIL_HOST_USER
+		to_list = ["rakesh.gunduka@gmail.com"]
+		try:
+			send_mail(subject,message,from_email,to_list,fail_silently=True)
+		except Exception as e:
+			print e
+		instance.save()
+		messages.success(request,"Successfully Created",extra_tags='success')
+		return HttpResponseRedirect(instance.get_absolute_url())
+	else:
+		print "asdasd"
 	context = {
-		"title":"blog"
-	}
+		"form":form,
+	}			
 	return render(request,"contact.html",context)
 
 def post_list(request):
@@ -187,3 +214,9 @@ def post_delete(request,user_id=None):
 	messages.success(request,"Successfully deleted")
 	return redirect("postss:home")
 	
+def suc(request):
+	if request.POST:
+		queryDict = request.POST
+		myDict = dict(queryDict.iterlists())
+		print myDict
+	return HttpResponse("<h1>Success</h1>")

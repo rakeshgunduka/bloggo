@@ -11,6 +11,7 @@ from .views import (
 	aboutpage,
 	postpage,
 	contactpage,
+    suc,
 	) 
 
 urlpatterns = [
@@ -25,4 +26,5 @@ urlpatterns = [
     #url(r'^(?P<user_id>\d+)/$',post_detail,name='detail'),
     url(r'^(?P<user_id>\d+)/edit$',post_update,name='update'),
     url(r'^(?P<user_id>\d+)/delete$',post_delete),
+    url(r'^success/',suc,name="success"),
 ]

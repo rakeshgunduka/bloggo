@@ -7,19 +7,28 @@
     <!-- Set your background image for this header on the line below. -->
     <header class="intro-header" style="
     background-image:url({% static 'img/post-bg.jpg' %});width:111.2%;margin-left:-6% "/>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-heading">
-                        <h1>{{ instance.title }}</h1>
-                        <h2 class="subheading">{{ instance.subtitle }}</h2>
-                        <span class="meta">Posted by <a href="#">{{ instance.User }}</a> on {{ instance.publish }}</span>
+                <div class="col-lg-10 col-lg-offset-2 col-md-5 col-md-offset-2">
+                   
+                    <div class="post-heading ">
+                            <h1>{{ instance.title }}</h1>
+                            <h2 class="subheading">{{ instance.subtitle }}</h2>
+                            <span class="meta">Posted by {{ instance.User}} on {{ instance.publish }}</span>
                     </div>
                 </div>
+                 <!-- 
+                <div class="col-md-4 col-md-pull-2">
+                    <div class="post-heading ">
+                        {% if instance.image %}
+                            <img src="{{ instance.image.url }}" class="img-responsive " style="max-width:80%;height:auto;"/>
+                        {% endif %}
+                    </div>
+                </div> -->
             </div>
         </div>
     </header>
-
+ 
     <!-- Post Content -->
     <article>
         <div class="container">

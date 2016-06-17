@@ -6,6 +6,8 @@ from django.db.models.signals import pre_save
 from django.db import models
 from django.core.urlresolvers import reverse
 
+from django.core.validators import MaxValueValidator
+
 
 from django.utils.text import slugify
 from django.utils import timezone
@@ -55,6 +57,19 @@ class Post(models.Model):
 	class Meta:
 		ordering = ["-timestamp","-updated"]
 
+class contact_model(models.Model):
+	name = models.CharField(max_length=120)
+	emailid = models.EmailField(max_length=120)
+	contact_no = models.PositiveIntegerField(validators=[MaxValueValidator(12)])
+	message = models.TextField(null=True)
+	def __unicode__(self):
+		return self.username
+
+	def __str__(self):
+		return self.username
+
+	def get_absolute_url(self):
+		return reverse("postss:contact")
 
 def create_slug(instance,new_slug=None):
 	slug = slugify(instance.title)
