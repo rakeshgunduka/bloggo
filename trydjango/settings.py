@@ -23,7 +23,7 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(_
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'secret key'
+SECRET_KEY = 'x0ao)+y*r76xi9+gxnjs*^wc8)be#&*helq0u9@r%w7!_g1y4@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -75,6 +75,12 @@ TEMPLATES = [
 ]
 
 
+WSGI_APPLICATION = 'trydjango.wsgi.application'
+
+EMAIL_BACKEND = "sgbackend.SendGridBackend"
+SENDGRID_USER = "rakeshgunduka"
+SENDGRID_PASSWORD = "Star123Company"
+
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
@@ -96,6 +102,17 @@ TEMPLATES = [
 #         'PORT': '',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dfegd07iss9ais',
+        'USER': 'wsfkomzerkrfgy',
+        'PASSWORD': ' w03mc4IzW4W0C_AIbD5xOObbHm',
+        'HOST': 'ec2-54-225-83-198.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation
