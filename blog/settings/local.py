@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'pagedown',
     'postss',
     'debug_toolbar',
     'django.contrib.admin',

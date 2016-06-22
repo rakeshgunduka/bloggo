@@ -1,11 +1,10 @@
 from django import forms
-
 from pagedown.widgets import PagedownWidget
 
 from .models import Post,contact_model
 
 class PostForm(forms.ModelForm):
-	#content = forms.CharField(widget = PagedownWidget)
+	content = forms.CharField(widget = PagedownWidget())
 	publish = forms.DateField(widget = forms.SelectDateWidget)
 	class Meta:
 		model = Post
@@ -41,10 +40,10 @@ class PostForm(forms.ModelForm):
 						attrs={
 							'type':'textarea',
 							'name':'content',
-							'id':'content',
+							'id':'exampleTextarea',
 							'tabindex':'2',
-							'class':'content',
-							'rows':'5',
+							'class':'form-control',
+							'rows':'3',
 						}),
 					'publish': forms.TextInput(
 						attrs={

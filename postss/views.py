@@ -187,11 +187,11 @@ def post_detail(request,user_id):
 	#return HttpResponse("<h1>Detail</h1>")
 
 def post_update(request,user_id):
-	if not request.user.is_staff or not request.user.is_superuser:
-		raise Http404
+	# if not request.user.is_staff or not request.user.is_superuser:
+	# 	raise Http404
 	instance = get_object_or_404(Post,user_id=user_id)
 	form = PostForm(request.POST or None,request.FILES or None,instance = instance )
-	if form.is_valuser_id():
+	if form.is_valid():
 		instance = form.save(commit=False)
 		#print form.cleaned_data.get("title")
 		instance.save()

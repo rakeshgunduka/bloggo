@@ -102,8 +102,8 @@ def post_detail(request,id):
 	#return HttpResponse("<h1>Detail</h1>")
 
 def post_update(request,id):
-	if not request.user.is_staff or not request.user.is_superuser:
-		raise Http404
+	# if not request.user.is_staff or not request.user.is_superuser:
+	# 	raise Http404
 	instance = get_object_or_404(Post,id=id)
 	form = PostForm(request.POST or None,request.FILES or None,instance = instance )
 	if form.is_valid():
