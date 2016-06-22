@@ -5,6 +5,7 @@ dj-static==0.0.6
 Django==1.9
 django-debug-toolbar==1.4
 django-haystack==2.4.1
+django-pagedown==0.1.1
 django-storages==1.4.1
 djangorestframework==3.3.3
 elasticsearch==2.3.0
